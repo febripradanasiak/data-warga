@@ -12,6 +12,22 @@ npm run dev
 
 Buka `http://localhost:5173`.
 
+## Setup Supabase (Data KK)
+
+1. Buat project di [supabase.com](https://supabase.com) → salin **Project URL**
+   dan **anon key** dari Settings → API.
+2. Jalankan `supabase/schema.sql` di **SQL Editor** Supabase
+   (membuat tabel `kepala_keluarga` + `anggota_keluarga` + RLS policy).
+3. Salin `.env.example` menjadi `.env` di root, isi kredensial:
+
+```bash
+VITE_SUPABASE_URL=https://xyzcompany.supabase.co
+VITE_SUPABASE_ANON_KEY=...
+```
+
+4. Restart `npm run dev`. Bagian **Daftar Induk KK** di Beranda kini
+   membaca dari Supabase; tombol **Tambah KK Baru** menyimpan ke sana.
+
 ## Build produksi
 
 ```bash
